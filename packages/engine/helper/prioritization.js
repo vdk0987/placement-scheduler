@@ -1,4 +1,4 @@
-function prioritize(requests) {
+export function prioritize(requests) {
   return [...requests].sort((a, b) => {
     // Day first.
     if (a.day !== b.day) {

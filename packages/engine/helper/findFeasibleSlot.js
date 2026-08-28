@@ -1,3 +1,6 @@
+import { checkFeasibility } from "../constraints";
+import {durationToTicks, fitsWithinDay} from "../timeGrid.js";
+
 export function findFeasibleSlot(request, context) {
   const { timeGrid, state, companiesById, studentsById, rooms } = context;
 
