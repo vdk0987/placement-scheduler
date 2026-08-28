@@ -1,3 +1,5 @@
+import { SCHEDULIING_CONFIG } from '../types.js';
+
 function markResourceBusy(occupancy, resourceId, day, startSlotIndex, ticks) {
   if (!occupancy.has(resourceId)) {
     occupancy.set(resourceId, new Set());

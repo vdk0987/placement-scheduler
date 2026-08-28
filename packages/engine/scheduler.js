@@ -1,6 +1,6 @@
 import { SCHEDULING_CONFIG } from "./types.js";
 
-function createScheduleState() {
+export function createScheduleState() {
   return {
     roomOccupancy: new Map(),
     panelOccupancy: new Map(),
@@ -8,7 +8,7 @@ function createScheduleState() {
   };
 }
 
-function scheduleAll(requests, rooms, timeGrid, indexes) {
+export function scheduleAll(requests, rooms, timeGrid, indexes) {
   const state = createScheduleState();
   const schedule = [];
   const unscheduled = [];
@@ -47,7 +47,7 @@ function scheduleAll(requests, rooms, timeGrid, indexes) {
   };
 }
 
-function buildSchedule(dataset, timeGrid) {
+export function buildSchedule(dataset, timeGrid) {
   const indexes = buildIndexes(dataset);
   const requests = createInterviewRequests(dataset);
 

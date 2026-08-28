@@ -1,3 +1,5 @@
+import { buildIndexes } from "./buildIndexes.js";
+
 export function createInterviewRequests(dataset) {
   const requests = [];
 
