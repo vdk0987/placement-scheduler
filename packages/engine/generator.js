@@ -2,7 +2,10 @@ import fs from "fs";
 import path from "path";
 
 import { mulberry32 } from "mulberry.js";
+import { CONFIG } from "./recruiterData.js"
+
 import { companyGenerator } from "./helper/companyGenerator.js";
+import { studentGenerator } from "./helper/studentGenerator.js";
 
 function generateCGPA(rng) {
   const a = rng();
@@ -22,4 +25,5 @@ function generateDataset(seed) {
   const rng = mulberry32(seed);
 
   const companies = companyGenerator(rng);
+  const students  = studentGenerator(rng, CONFIG.TOTAL_STUDENTS);
 }

@@ -2,26 +2,13 @@ import {
   massRecruiterNames,
   midTierNames,
   highTierNames,
-} from "../recruiterData";
+  CONFIG,
+} from "../recruiterData.js";
 
-const CONFIG = {
-  TOTAL_COMPANIES: 35,
-  TOTAL_STUDENTS: 800,
-  TOTAL_ROOMS: 20,
-  TOTAL_DAYS: 4,
-
-  BRANCHES: ["CSE", "ISE", "ECE", "EEE", "ME", "CE"],
-
-  COMPANY_TYPES: {
-    MASS_RECRUITER: "mass_recruiter",
-    MID_TIER: "mid_tier",
-    HIGH_TIER: "high_tier",
-  },
-};
-
-const companies = [];
 
 export default function companyGenerator(rng) {
+  const companies = [];
+
   //mass recruiters
   const massRecruiterCount = 7;
   for (let i = 0; i < massRecruiterCount; i++) {
@@ -66,7 +53,6 @@ export default function companyGenerator(rng) {
 
   //mid tier companies
   const midTierCount = 23;
-
   for (let i = 0; i < midTierCount; i++) {
     const companyNumber = companies.length + 1;
 
@@ -120,8 +106,8 @@ export default function companyGenerator(rng) {
     companies.push(company);
   }
 
+  //high tier
   const highTierCount = 5;
-
   for (let i = 0; i < highTierCount; i++) {
     const companyNumber = companies.length + 1;
 
