@@ -2,28 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import { mulberry32 } from "mulberry.js";
-
-const CONFIG = {
-  TOTAL_COMPANIES: 35,
-  TOTAL_STUDENTS: 800,
-  TOTAL_ROOMS: 20,
-  TOTAL_DAYS: 4,
-
-  BRANCHES: [
-    "CSE",
-    "ISE",
-    "ECE",
-    "EEE",
-    "ME",
-    "CE",
-  ],
-
-  COMPANY_TYPES: {
-    MASS_RECRUITER: "mass_recruiter",
-    MID_TIER: "mid_tier",
-    HIGH_TIER: "high_tier",
-  },
-};
+import { companyGenerator } from "./helper/companyGenerator.js";
 
 function generateCGPA(rng) {
   const a = rng();
@@ -37,4 +16,10 @@ function generateCGPA(rng) {
   cgpa = Math.max(5.0, Math.min(10.0, cgpa));
 
   return Number(cgpa.toFixed(2));
+}
+
+function generateDataset(seed) {
+  const rng = mulberry32(seed);
+
+  const companies = companyGenerator(rng);
 }
