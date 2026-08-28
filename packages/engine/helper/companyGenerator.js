@@ -5,8 +5,9 @@ import {
   CONFIG,
 } from "../recruiterData.js";
 
+import { randomFloat, randomInt, sample } from "./helpers.js";
 
-export default function companyGenerator(rng) {
+export function companyGenerator(rng) {
   const companies = [];
 
   //mass recruiters

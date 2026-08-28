@@ -1,6 +1,21 @@
 import { CONFIG } from "../recruiterData.js";
+import { weightedPick } from "./helpers.js";
 
-export default function generateStudents(rng) {
+function generateCGPA(rng) {
+  const a = rng();
+  const b = rng();
+  const c = rng();
+
+  const normalized = (a + b + c) / 3;
+
+  let cgpa = 5.5 + normalized * 4.5;
+
+  cgpa = Math.max(5.0, Math.min(10.0, cgpa));
+
+  return Number(cgpa.toFixed(2));
+}
+
+export function studentGenerator(rng) {
   const students = [];
 
   for (let i = 0; i < CONFIG.TOTAL_STUDENTS; i++) {

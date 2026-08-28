@@ -1,3 +1,5 @@
+import { weightedPick } from "./helpers.js";
+
 function buildStudentPercentiles(students) {
   const sorted = [...students].sort(
     (a, b) => b.cgpa - a.cgpa
@@ -15,7 +17,7 @@ function buildStudentPercentiles(students) {
   return percentileById;
 }
 
-function isEligible(student, company) {
+export function isEligible(student, company) {
   if (student.cgpa < company.cgpaCutoff) {
     return false;
   }

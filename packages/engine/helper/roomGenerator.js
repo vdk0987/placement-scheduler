@@ -1,4 +1,7 @@
-export default function generateRooms(rng) {
+import { CONFIG } from "../recruiterData.js";
+import { randomInt } from "./helpers.js";
+
+export function generateRooms(rng) {
   const rooms = [];
 
   for (let i = 0; i < CONFIG.TOTAL_ROOMS; i++) {
