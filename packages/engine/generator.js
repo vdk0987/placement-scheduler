@@ -25,5 +25,5 @@ function generateDataset(seed) {
   const rng = mulberry32(seed);
 
   const companies = companyGenerator(rng);
-  const students  = studentGenerator(rng, CONFIG.TOTAL_STUDENTS);
+  const students  = studentGenerator(rng);
 }
