@@ -1,4 +1,4 @@
-import SCHEDULING_CONFIG from "./types.js";
+import { SCHEDULING_CONFIG } from "./types.js";
 
 export function formatTime(minutes) {
   const hours = Math.floor(minutes / 60);

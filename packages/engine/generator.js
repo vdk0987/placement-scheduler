@@ -12,7 +12,7 @@ import { validateDataset, generateSummary } from "./helper/validateDataset.js";
 import { generateShortlists } from "./helper/shortlistGenerator.js";
 import { enforceTopStudentOverlap } from "./helper/studentOverlap.js";
 
-function generateDataset(seed = 67) {
+export function generateDataset(seed = 67) {
   const rng = mulberry32(seed);
 
   const companies = companyGenerator(rng);

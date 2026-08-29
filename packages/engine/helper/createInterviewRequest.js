@@ -1,4 +1,4 @@
-function buildIndexes(dataset) {
+export function buildIndexes(dataset) {
   const companiesById = new Map(
     dataset.companies.map((company) => [company.id, company]),
   );

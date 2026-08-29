@@ -16,7 +16,7 @@ export function companyGenerator(rng) {
     const companyId = `company-${String(i + 1).padStart(2, "0")}`;
     const cgpaCutoff = Number(randomFloat(rng, 6.0, 6.5).toFixed(1));
     const panelCount = randomInt(rng, 15, 30);
-    const shortlistSize = randomInt(rng, 150, 300);
+    const shortlistSize = randomInt(rng, 50, 100);
 
     const company = {
       id: companyId,
@@ -65,7 +65,7 @@ export function companyGenerator(rng) {
 
     const panelCount = randomInt(rng, 3, 6);
 
-    const shortlistSize = randomInt(rng, 40, 100);
+    const shortlistSize = randomInt(rng, 20, 50);
 
     const branchRestricted = rng() < 0.6;
 
@@ -90,7 +90,7 @@ export function companyGenerator(rng) {
 
       shortlistTargetSize: shortlistSize,
 
-      slotDuration: randomInt(rng, 20, 30),
+      slotDuration: randomInt(rng, 20, 40),
 
       popularity: randomFloat(rng, 0.4, 0.8),
 
@@ -118,7 +118,7 @@ export function companyGenerator(rng) {
 
     const panelCount = randomInt(rng, 1, 2);
 
-    const shortlistSize = randomInt(rng, 15, 30);
+    const shortlistSize = randomInt(rng, 10, 20);
 
     const allowedBranches = sample(rng, CONFIG.BRANCHES, randomInt(rng, 1, 3));
 

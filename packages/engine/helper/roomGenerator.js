@@ -5,8 +5,7 @@ export function generateRooms(rng) {
   const rooms = [];
 
   for (let i = 0; i < CONFIG.TOTAL_ROOMS; i++) {
-    const id =
-      `room-${String(i + 1).padStart(2, "0")}`;
+    const id = `room-${String(i + 1).padStart(2, "0")}`;
 
     const isSpecial = i >= 17;
 
@@ -17,13 +16,9 @@ export function generateRooms(rng) {
         ? `Special Interview Room ${i + 1}`
         : `Interview Room ${i + 1}`,
 
-      capacity: isSpecial
-        ? randomInt(rng, 12, 20)
-        : randomInt(rng, 4, 10),
+      capacity: isSpecial ? randomInt(rng, 12, 20) : randomInt(rng, 4, 10),
 
-      features: isSpecial
-        ? ["AV", "VIDEO", "PROJECTOR"]
-        : [],
+      features: isSpecial ? ["AV", "VIDEO", "PROJECTOR"] : [],
     };
 
     rooms.push(room);

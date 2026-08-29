@@ -1,4 +1,4 @@
-import { SCHEDULIING_CONFIG } from '../types.js';
+import { SCHEDULING_CONFIG } from '../types.js';
 
 function markResourceBusy(occupancy, resourceId, day, startSlotIndex, ticks) {
   if (!occupancy.has(resourceId)) {
@@ -50,6 +50,6 @@ export function commitAssignment(request, slot, state) {
     slotDuration: request.slotDuration,
     startSlotIndex: slot.startSlotIndex,
     ticks: slot.ticks,
-    status: SCHEDULIING_CONFIG.INTERVIEW_STATUS.SCHEDULED,
+    status: SCHEDULING_CONFIG.INTERVIEW_STATUS.SCHEDULED,
   };
 }

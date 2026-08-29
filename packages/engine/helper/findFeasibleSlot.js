@@ -1,4 +1,4 @@
-import { checkFeasibility } from "../constraints";
+import { checkFeasibility } from "../constraints.js";
 import {durationToTicks, fitsWithinDay} from "../timeGrid.js";
 
 export function findFeasibleSlot(request, context) {
