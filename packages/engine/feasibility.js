@@ -2,7 +2,7 @@ import {
   intervalsOverlap,
   getInterviewEndMinutes,
   timeToMinutes,
-} from "./metricsHelpers";
+} from "./helper/metricsHelper.js";
 
 export function validateSchedule(schedule) {
   const clashes = [];

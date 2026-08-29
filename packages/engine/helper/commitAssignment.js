@@ -48,6 +48,7 @@ export function commitAssignment(request, slot, state) {
     startMinute: slot.startMinute,
     endMinute: slot.endMinute,
     slotDuration: request.slotDuration,
+    durationMinutes: request.slotDuration,
     startSlotIndex: slot.startSlotIndex,
     ticks: slot.ticks,
     status: SCHEDULING_CONFIG.INTERVIEW_STATUS.SCHEDULED,
