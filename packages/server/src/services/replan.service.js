@@ -1,8 +1,8 @@
 import {
-  companyLate,
-  panelDrop,
-  studentWithdraw,
-  roomUnavailable,
+  replanCompanyLate,
+  replanPanelDrop,
+  replanStudentWithdraw,
+  replanRoomUnavailable,
 } from "../../../engine/index.js";
 
 import { AppError } from "../utils/appError.js";
@@ -45,7 +45,7 @@ function handleCompanyLate(payload, input) {
     throw new AppError("hours must be a positive number", 400);
   }
 
-  return companyLate({
+  return replanCompanyLate({
     companyId,
     hours,
     ...input,
@@ -59,7 +59,7 @@ function handlePanelDrop(payload, input) {
     throw new AppError("panelId is required", 400);
   }
 
-  return panelDrop({
+  return replanPanelDrop({
     panelId,
     ...input,
   });
@@ -72,7 +72,7 @@ function handleStudentWithdraw(payload, input) {
     throw new AppError("studentId is required", 400);
   }
 
-  return studentWithdraw({
+  return replanStudentWithdraw({
     studentId,
     ...input,
   });
@@ -93,7 +93,7 @@ function handleRoomUnavailable(payload, input) {
     throw new AppError("from and to must be time strings", 400);
   }
 
-  return roomUnavailable({
+  return replanRoomUnavailable({
     roomId,
     day,
     from,

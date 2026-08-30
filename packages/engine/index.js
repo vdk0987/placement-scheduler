@@ -1,10 +1,10 @@
-export { scheduleAll } from "./scheduler.js";
+export { scheduleAll, buildSchedule } from "./scheduler.js";
 
 export {
-  companyLate,
-  panelDrop,
-  studentWithdraw,
-  roomUnavailable,
+  replanCompanyLate,
+  replanPanelDrop,
+  replanStudentWithdraw,
+  replanRoomUnavailable,
 } from "./replan.js";
 
 export { computeMetrics } from "./metrics.js";

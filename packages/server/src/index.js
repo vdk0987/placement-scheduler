@@ -4,7 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
-  scheduleAll,
+  buildSchedule,
   computeMetrics,
   createTimeGrid,
 } from "../../engine/index.js";
@@ -32,17 +32,18 @@ function createInitialState(dataset) {
 
   const timeGrid = createTimeGrid();
 
-  const result = scheduleAll({
-    companies,
-    students,
-    rooms,
-    timeGrid,
-  });
+  const result = buildSchedule(dataset, timeGrid);
 
   const metrics = computeMetrics({
     schedule: result.schedule,
     unscheduled: result.unscheduled,
     rooms,
+    config: {
+      totalDays: 4,
+      dayStartTime: "09:00",
+      dayEndTime: "17:00",
+      minimumStudentBufferMinutes: 10,
+    },
   });
 
   return {
@@ -82,10 +83,6 @@ const app = createApp({
   store,
   websocketServer,
 });
-
-/*
- * Replace the temporary request handler.
- */
 
 httpServer.removeAllListeners("request");
 httpServer.on("request", app);

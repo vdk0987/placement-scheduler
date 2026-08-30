@@ -60,7 +60,7 @@ export function replan({ event, currentState, dataset, timeGrid }) {
   }
 }
 
-function replanCompanyLate({
+export function replanCompanyLate({
   event,
   currentState,
   dataset,
@@ -94,7 +94,7 @@ function replanCompanyLate({
   });
 }
 
-function replanPanelDrop({
+export function replanPanelDrop({
   event,
   currentState,
   dataset,
@@ -128,7 +128,7 @@ function replanPanelDrop({
   });
 }
 
-function replanRoomUnavailable({
+export function replanRoomUnavailable({
   event,
   currentState,
   dataset,
@@ -162,7 +162,7 @@ function replanRoomUnavailable({
   });
 }
 
-function replanStudentWithdraw({
+export function replanStudentWithdraw({
   event,
   currentState,
   dataset,
@@ -508,12 +508,6 @@ function attachChurn(diff, affectedCount) {
     percentAffected: `${churn.rate}%`,
   };
 }
-
-/**
- * ============================================================
- * NOTIFICATIONS
- * ============================================================
- */
 
 function buildNotifications({
   event,
