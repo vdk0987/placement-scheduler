@@ -15,7 +15,7 @@ export const SCHEDULING_CONFIG = {
 };
 
 export const REPLAN_CONFIG = {
-    MAX_REPAIR_STEPS: 50,
+    MAX_REPAIR_STEPS: 200,
 
     NEARBY_SLOT_RADIUS: 12,
 

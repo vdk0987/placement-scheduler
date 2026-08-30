@@ -280,10 +280,41 @@ export function findBestRepairCandidate({
 
   let best = null;
 
+  const MAX_DELAY_MINUTES = 180;
+
   for (const candidate of candidates) {
+    const delayMinutes = candidate.startMinute - interview.startMinute;
+
+    if (delayMinutes > MAX_DELAY_MINUTES) {
+      continue;
+    }
+
     const room = rooms.find((item) => item.id === candidate.roomId);
 
     const panel = company.panels.find((item) => item.id === candidate.panelId);
+
+    const feasibility = checkFeasibility(
+      {
+        request: {
+          companyId: interview.companyId,
+          studentId: interview.studentId,
+          slotDuration: interview.durationMinutes,
+        },
+        company,
+        student,
+        room,
+        panel,
+        day: candidate.day,
+        startSlotIndex: candidate.startSlotIndex,
+        ticks: candidate.ticks,
+      },
+      state,
+    );
+
+    if (!feasibility.valid) {
+      continue;
+    }
+
 
     const result = scoreCandidate({
       interview,

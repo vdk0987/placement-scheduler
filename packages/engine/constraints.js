@@ -1,4 +1,18 @@
 export function checkStudentEligibility(request, student, company) {
+  if (!student) {
+    return {
+      valid: false,
+      reason: "student not found",
+    };
+  }
+
+  if (!company) {
+    return {
+      valid: false,
+      reason: "company not found",
+    };
+  }
+
   if (student.cgpa < company.cgpaCutoff) {
     return {
       valid: false,
@@ -6,9 +20,13 @@ export function checkStudentEligibility(request, student, company) {
     };
   }
 
+  const branchRestrictions = Array.isArray(company.branchRestrictions)
+    ? company.branchRestrictions
+    : [];
+
   if (
-    company.branchRestrictions.length > 0 &&
-    !company.branchRestrictions.includes(student.branch)
+    branchRestrictions.length > 0 &&
+    !branchRestrictions.includes(student.branch)
   ) {
     return {
       valid: false,

@@ -9,7 +9,8 @@ import {
   findBestRepairCandidate,
 } from "./repair.js";
 
-import { computeMetrics, computeReplanChurn } from "./metrics.js";
+import { computeMetrics } from "./metrics.js";
+import { computeReplanChurn } from "./helper/metricsHelper.js";
 
 export function replan({ event, currentState, dataset, timeGrid }) {
   const beforeSchedule = structuredClone(currentState.schedule);
