@@ -10,5 +10,14 @@ export const SCHEDULING_CONFIG = {
     SCHEDULED: "scheduled",
     UNSCHEDULED: "unscheduled",
     WITHDRAWN: "withdrawn",
+    CANCELLED: "cancelled",
   },
 };
+
+export const REPLAN_CONFIG = {
+    MAX_REPAIR_STEPS: 50,
+
+    NEARBY_SLOT_RADIUS: 12,
+
+    STUDENT_BUFFER_MINUTES: 10,
+}
