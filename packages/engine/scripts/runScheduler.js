@@ -1,7 +1,7 @@
-import { generateDataset } from "./generator.js";
-import { createTimeGrid } from "./timeGrid.js";
-import { buildSchedule } from "./scheduler.js";
-import { computeMetrics } from "./metrics.js";
+import { generateDataset } from "../generator.js";
+import { createTimeGrid } from "../timeGrid.js";
+import { buildSchedule } from "../scheduler.js";
+import { computeMetrics } from "../metrics.js";
 
 console.log("\nGenerating dataset...");
 

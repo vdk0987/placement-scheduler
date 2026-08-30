@@ -1,4 +1,4 @@
-import { SCHEDULING_CONFIG } from '../types.js';
+import { SCHEDULING_CONFIG } from "../types.js";
 
 function markResourceBusy(occupancy, resourceId, day, startSlotIndex, ticks) {
   if (!occupancy.has(resourceId)) {
@@ -51,6 +51,7 @@ export function commitAssignment(request, slot, state) {
     durationMinutes: request.slotDuration,
     startSlotIndex: slot.startSlotIndex,
     ticks: slot.ticks,
+    studentShortlistOverlapCount: request.studentShortlistOverlapCount,
     status: SCHEDULING_CONFIG.INTERVIEW_STATUS.SCHEDULED,
   };
 }
