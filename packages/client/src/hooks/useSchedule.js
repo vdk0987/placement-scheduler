@@ -41,18 +41,28 @@ export function useSchedule(selectedDay) {
     }
   }, [selectedDay]);
 
+  /*
+   * Initial load / day change.
+   *
+   * Defer the call so the effect itself does not
+   * synchronously trigger state updates.
+   */
   useEffect(() => {
-    refresh();
+    const timer = setTimeout(() => {
+      refresh();
+    }, 0);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [refresh]);
 
   return {
     schedule,
     unscheduled,
     metrics,
-
     loading,
     error,
-
     refresh,
   };
 }
