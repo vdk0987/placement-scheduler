@@ -1,0 +1,215 @@
+.modal-backdrop {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    z-index: 1000;
+}
+
+.diff-modal {
+    width: min(950px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 24px;
+}
+
+.diff-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding-bottom: 16px;
+}
+
+.diff-header h2 {
+    margin: 0;
+}
+
+.diff-header p {
+    margin: 6px 0 0;
+
+    color: #64748b;
+}
+
+.close-button {
+    border: none;
+    background: none;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+}
+
+.diff-summary {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin: 20px 0;
+}
+
+.summary-card {
+    padding: 16px;
+
+    display: grid;
+    gap: 5px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 7px;
+}
+
+.summary-card strong {
+    font-size: 1.5rem;
+}
+
+.summary-card span {
+    color: #64748b;
+}
+
+.diff-section {
+    margin-top: 25px;
+}
+
+.change-row {
+    padding: 14px;
+
+    display: grid;
+    gap: 12px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.before-after {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.position {
+    display: grid;
+    gap: 3px;
+
+    padding: 10px;
+
+    background: #f8fafc;
+
+    border-radius: 6px;
+}
+
+.position > span {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.arrow {
+    font-size: 1.5rem;
+}
+
+.unscheduled-change {
+    padding: 10px;
+
+    display: grid;
+    gap: 4px;
+
+    border-left: 3px solid #dc2626;
+
+    background: #fef2f2;
+}
+
+.notification {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 12px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.notification p {
+    margin: 4px 0 0;
+
+    color: #475569;
+}
+
+.notification button {
+    height: fit-content;
+
+    padding: 6px 10px;
+}
+
+.diff-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.cancel-button,
+.commit-button {
+    padding: 10px 16px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.cancel-button {
+    background: white;
+
+    border: 1px solid #cbd5e1;
+}
+
+.commit-button {
+    border: none;
+
+    background: #0f766e;
+    color: white;
+
+    font-weight: 700;
+}
+
+.empty-state {
+    padding: 18px;
+
+    color: #64748b;
+
+    background: #f8fafc;
+
+    border-radius: 6px;
+}
