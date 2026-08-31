@@ -5,7 +5,7 @@ import {
   minutesToTime,
 } from "../../utils/schedule.js";
 
-import "./ScheduleGrid.css";
+import "../styles/ScheduleGrid.css";
 
 const DAY_START = 9 * 60;
 const DAY_END = 19 * 60;
