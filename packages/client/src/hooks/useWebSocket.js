@@ -8,9 +8,15 @@ export function useWebSocket(onScheduleUpdated) {
   }, [onScheduleUpdated]);
 
   useEffect(() => {
-    const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+    const wsUrl = import.meta.env.VITE_WS_URL;
 
-    const socket = new WebSocket(`${protocol}://localhost:3000/ws`);
+    if (!wsUrl) {
+      console.warn("VITE_WS_URL is not configured");
+
+      return;
+    }
+
+    const socket = new WebSocket(wsUrl);
 
     socket.onmessage = (event) => {
       try {
@@ -24,9 +30,8 @@ export function useWebSocket(onScheduleUpdated) {
       }
     };
 
-    socket.onerror = () => {
-      // Dashboard still works without WS.
-      // HTTP refresh remains available.
+    socket.onerror = (error) => {
+      console.error("WebSocket error", error);
     };
 
     return () => {

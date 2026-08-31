@@ -1,10 +1,11 @@
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 async function request(path, options = {}) {
-  const response = await fetch(path, {
+  const response = await fetch(`${API_URL}${path}`, {
     headers: {
       "Content-Type": "application/json",
       ...options.headers,
     },
-
     ...options,
   });
 
@@ -34,7 +35,6 @@ export function getMetrics() {
 export function previewReplan(type, payload) {
   return request(`/api/replan/${type}`, {
     method: "POST",
-
     body: JSON.stringify(payload),
   });
 }
@@ -46,7 +46,6 @@ export function getPreview() {
 export function commitPreview(previewId) {
   return request("/api/replan/commit", {
     method: "POST",
-
     body: JSON.stringify({
       previewId,
     }),
