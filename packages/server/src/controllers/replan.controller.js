@@ -1,9 +1,4 @@
-import {
-  runReplan,
-  normalizeReplanResult,
-} from "../services/replan.service.js";
-
-import { computeMetrics } from "../../../engine/metrics.js";
+import { runReplan } from "../services/replan.service.js";
 
 export function createReplanController({ store, websocketServer }) {
   function preview(type) {
@@ -15,35 +10,27 @@ export function createReplanController({ store, websocketServer }) {
           store,
         });
 
-        const normalized = normalizeReplanResult(result);
-
-        const dataset = store.getDataset();
-
-        const nextState = {
-          schedule: normalized.schedule,
-          unscheduled: normalized.unscheduled,
-          metrics: computeMetrics({
-            schedule: normalized.schedule,
-            unscheduled: normalized.unscheduled,
-            rooms: dataset.rooms,
-          }),
-        };
-
         const preview = store.createPreview({
           disruption: {
             type,
+
             target: extractTarget(type, req.body),
+
             params: req.body,
           },
-          nextState,
-          diff: normalized.diff,
+
+          nextState: result.state,
+
+          diff: result.diff,
         });
 
         res.status(200).json({
           success: true,
           mode: "preview",
+
           ...preview,
-          nextMetrics: nextState.metrics,
+
+          nextMetrics: result.state.metrics,
         });
       } catch (error) {
         next(error);
