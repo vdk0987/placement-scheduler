@@ -2,11 +2,11 @@ import { useState } from "react";
 import { previewReplan, commitPreview } from "./api/client.js";
 import { useSchedule } from "./hooks/useSchedule.js";
 import { useWebSocket } from "./hooks/useWebSocket.js";
-import ScheduleGrid from "./components/ScheduleGrid/ScheduleGrid.jsx";
-import ConflictsPanel from "./components/ConflictsPanel/ConflictsPanel.jsx";
-import DisruptionControls from "./components/DisruptionControls/DisruptionControls.jsx";
-import DiffModal from "./components/DiffModal/DiffModal.jsx";
-import MetricsBar from "./components/MetricsBar/MetricsBar.jsx";
+import ScheduleGrid from "./components/ScheduleGrid.jsx";
+import ConflictsPanel from "./components/ConflictsPanel.jsx";
+import DisruptionControls from "./components/DisruptionControls.jsx";
+import DiffModal from "./components/DiffModal.jsx";
+import MetricsBar from "./components/MetricsBar.jsx";
 
 const DAYS = [1, 2, 3, 4];
 

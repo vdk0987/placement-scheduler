@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "../styles/DisruptionControls.jsx";
+import "../styles/DisruptionControls.css";
 
 const INITIAL_VALUES = {
   companyId: "",

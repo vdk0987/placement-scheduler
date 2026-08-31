@@ -3,7 +3,7 @@ import {
   getInterviewDuration,
   getInterviewStart,
   minutesToTime,
-} from "../../utils/schedule.js";
+} from "../utils/schedule.js";
 
 import "../styles/ScheduleGrid.css";
 
