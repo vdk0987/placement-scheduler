@@ -1,174 +1,151 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-
+:root {
     font-family:
         Inter,
+        ui-sans-serif,
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
-
-    color: #0f172a;
-
-    background: #f1f5f9;
+    color: #172033;
+    background: #f4f7fb;
+    font-synthesis: none;
 }
-
+* {
+    box-sizing: border-box;
+}
+body {
+    min-width: 320px;
+    margin: 0;
+    background:
+        radial-gradient(circle at top left, #e7f4ff 0, transparent 28rem),
+        #f4f7fb;
+}
 button,
 input,
 select {
     font: inherit;
 }
-
 button {
     cursor: pointer;
 }
-
-.app-shell {
-    width: min(1800px, 100%);
-
-    margin: 0 auto;
-
-    padding: 24px;
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.28);
+    outline-offset: 2px;
 }
-
+.app-shell {
+    width: min(1680px, 100%);
+    margin: 0 auto;
+    padding: 32px;
+}
 .app-header {
     display: flex;
-
     align-items: center;
     justify-content: space-between;
-
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
-
 .app-header h1 {
     margin: 0;
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    letter-spacing: -0.045em;
 }
-
 .app-header p {
     margin: 5px 0 0;
-
-    color: #64748b;
+    color: #667085;
 }
-
 .refresh-button {
-    padding: 9px 14px;
-
-    border: 1px solid #cbd5e1;
-
-    background: white;
-
-    border-radius: 6px;
+    padding: 10px 15px;
+    border: 1px solid #d4dce8;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #344054;
+    font-weight: 650;
+    transition: 0.18s ease;
 }
-
+.refresh-button:hover {
+    border-color: #9fb2cc;
+    background: #fff;
+    transform: translateY(-1px);
+}
 .day-tabs {
     display: flex;
-
-    gap: 8px;
-
+    gap: 6px;
     margin-bottom: 20px;
 }
-
 .day-tabs button {
-    padding: 8px 16px;
-
-    border: 1px solid #cbd5e1;
-
-    background: white;
-
-    border-radius: 6px;
+    padding: 9px 15px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: #667085;
+    font-weight: 650;
 }
-
 .day-tabs button.active {
-    background: #0f766e;
-
-    border-color: #0f766e;
-
-    color: white;
+    border-color: #172b4d;
+    background: #172b4d;
+    color: #fff;
 }
-
 .dashboard-layout {
     display: grid;
-
-    grid-template-columns:
-        minmax(0, 3fr)
-        minmax(300px, 1fr);
-
-    gap: 20px;
+    grid-template-columns: minmax(0, 3fr) minmax(300px, 1fr);
+    gap: 24px;
 }
-
 .main-column,
 .side-column {
     min-width: 0;
 }
-
 .card {
-    padding: 20px;
-
-    margin-bottom: 20px;
-
-    background: white;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 9px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #e0e7f0;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.93);
+    box-shadow: 0 8px 24px rgba(25, 46, 83, 0.05);
 }
-
 .section-header {
     display: flex;
-
     justify-content: space-between;
-
     margin-bottom: 15px;
 }
-
 .section-header h2,
 .card > h2 {
     margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+    letter-spacing: -0.015em;
 }
-
 .section-header p {
-    color: #64748b;
+    margin: 0;
+    color: #667085;
 }
-
 .error-banner {
     padding: 12px;
-
     margin-bottom: 15px;
-
-    color: #991b1b;
-
-    background: #fef2f2;
-
     border: 1px solid #fecaca;
-
-    border-radius: 6px;
+    border-radius: 9px;
+    color: #991b1b;
+    background: #fef2f2;
 }
-
 @media (max-width: 1100px) {
     .dashboard-layout {
         grid-template-columns: 1fr;
     }
-
     .side-column {
         order: -1;
     }
 }
-
 @media (max-width: 600px) {
     .app-shell {
-        padding: 12px;
+        padding: 16px;
     }
-
     .app-header {
         align-items: flex-start;
-
         gap: 15px;
-
         flex-direction: column;
+    }
+    .card {
+        padding: 18px;
     }
 }

@@ -13,10 +13,10 @@ export default function DiffModal({ preview, onClose, onCommit, loading }) {
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="diff-modal" onClick={(event) => event.stopPropagation()}>
+      <div className="diff-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title" onClick={(event) => event.stopPropagation()}>
         <header className="diff-header">
           <div>
-            <h2>Replan Preview</h2>
+            <h2 id="preview-title">Replan Preview</h2>
 
             <p>Review changes before committing.</p>
           </div>
@@ -26,13 +26,10 @@ export default function DiffModal({ preview, onClose, onCommit, loading }) {
           </button>
         </header>
 
-        <DiffSummary
-          changed={changed}
-          cancelled={cancelled}
-          unscheduled={newlyUnscheduled}
-        />
+        <div className="diff-content">
+          <DiffSummary changed={changed} cancelled={cancelled} unscheduled={newlyUnscheduled} />
 
-        <section className="diff-section">
+          <section className="diff-section">
           <h3>Changed Interviews</h3>
 
           {changed.length === 0 ? (
@@ -44,9 +41,9 @@ export default function DiffModal({ preview, onClose, onCommit, loading }) {
               ))}
             </div>
           )}
-        </section>
+          </section>
 
-        <section className="diff-section">
+          <section className="diff-section">
           <h3>Newly Unscheduled</h3>
 
           {newlyUnscheduled.length === 0 ? (
@@ -60,13 +57,14 @@ export default function DiffModal({ preview, onClose, onCommit, loading }) {
               </div>
             ))
           )}
-        </section>
+          </section>
 
-        <section className="diff-section">
+          <section className="diff-section">
           <h3>Notifications</h3>
 
           <NotificationList notifications={notify} />
-        </section>
+          </section>
+        </div>
 
         <footer className="diff-footer">
           <button className="cancel-button" onClick={onClose}>

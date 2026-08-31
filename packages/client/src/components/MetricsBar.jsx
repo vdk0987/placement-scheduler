@@ -8,23 +8,31 @@ export default function MetricsBar({ metrics }) {
       <Metric
         label="Scheduled"
         value={formatPercent(
-          metrics.percentScheduled ?? metrics.scheduledPercentage,
+          metrics.scheduling?.percentScheduled ??
+            metrics.summary?.scheduleRate ??
+            metrics.percentScheduled ??
+            metrics.scheduledPercentage,
         )}
       />
 
       <Metric
         label="Room Utilization"
-        value={formatPercent(metrics.roomUtilization)}
+        value={formatPercent(
+          metrics.roomUtilization?.overall?.utilizationPercent ??
+            metrics.roomUtilization,
+        )}
       />
 
       <Metric
         label="Avg. Student Wait"
         value={formatMinutes(
-          metrics.averageStudentWaitTime ?? metrics.averageWaitTime,
+          metrics.studentWaitTime?.averageWaitMinutes ??
+            metrics.averageStudentWaitTime ??
+            metrics.averageWaitTime,
         )}
       />
 
-      <Metric label="Clashes" value={metrics.clashCount ?? 0} />
+      <Metric label="Clashes" value={metrics.feasibility?.clashCount ?? metrics.clashCount ?? 0} />
     </section>
   );
 }

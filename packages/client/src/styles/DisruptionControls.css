@@ -1,81 +1,59 @@
 .disruption-controls {
     display: grid;
-    gap: 20px;
+    gap: 18px;
 }
-
 .disruption-types {
     display: flex;
-
     flex-wrap: wrap;
-
-    gap: 8px;
+    gap: 7px;
 }
-
 .disruption-type {
-    padding: 8px 12px;
-
-    border: 1px solid #cbd5e1;
-    background: white;
-
-    border-radius: 6px;
-
-    cursor: pointer;
+    padding: 9px 12px;
+    border: 1px solid #d8e1ed;
+    border-radius: 8px;
+    background: #fff;
+    color: #475467;
+    font-size: 0.86rem;
+    font-weight: 650;
 }
-
 .disruption-type.active {
-    background: #0f766e;
-    color: white;
-
-    border-color: #0f766e;
+    border-color: #9ec4f6;
+    background: #e8f1ff;
+    color: #1558a5;
 }
-
 .control-fields {
     display: flex;
-
     flex-wrap: wrap;
-
-    gap: 14px;
+    gap: 16px;
 }
-
 .control-field {
     display: grid;
-
+    flex: 1 1 180px;
     gap: 6px;
-
-    min-width: 160px;
+    min-width: 170px;
 }
-
 .control-field span {
-    font-size: 0.82rem;
+    color: #475467;
+    font-size: 0.77rem;
     font-weight: 600;
 }
-
 .control-field input,
 .control-field select {
-    padding: 9px;
-
+    padding: 10px 11px;
     border: 1px solid #cbd5e1;
-
-    border-radius: 5px;
+    border-radius: 8px;
+    background: #fff;
 }
-
 .preview-button {
     width: fit-content;
-
     padding: 10px 18px;
-
-    border: none;
-    border-radius: 6px;
-
-    background: #0f766e;
-    color: white;
-
+    border: 0;
+    border-radius: 8px;
+    background: #1565c0;
+    color: #fff;
     font-weight: 700;
-
-    cursor: pointer;
 }
-
 .preview-button:disabled {
-    opacity: 0.6;
     cursor: not-allowed;
+    opacity: 0.6;
 }

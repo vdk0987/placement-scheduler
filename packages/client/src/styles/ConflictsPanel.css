@@ -1,0 +1,103 @@
+.conflicts-panel {
+    display: grid;
+    gap: 16px;
+}
+.conflicts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+.conflicts-header h2 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+.conflicts-header span {
+    display: block;
+    margin-top: 4px;
+    color: #667085;
+    font-size: 0.8rem;
+}
+.conflicts-header select {
+    padding: 8px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+    color: #344054;
+    font-size: 0.82rem;
+}
+.no-conflicts {
+    padding: 16px;
+    border: 1px solid #c7f0d8;
+    border-radius: 9px;
+    color: #137b53;
+    background: #edfdf3;
+    font-size: 0.88rem;
+    font-weight: 650;
+}
+.reason-group {
+    overflow: hidden;
+    border: 1px solid #e4ebf3;
+    border-radius: 10px;
+}
+.reason-title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 0;
+    color: #475467;
+    background: #f7f9fc;
+    font-size: 0.8rem;
+    font-weight: 650;
+    text-align: left;
+}
+.reason-title:hover {
+    background: #f0f5fb;
+}
+.reason-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.reason-title strong {
+    display: grid;
+    min-width: 22px;
+    height: 22px;
+    place-items: center;
+    border-radius: 999px;
+    color: #a33a17;
+    background: #fff0eb;
+    font-size: 0.73rem;
+}
+.reason-chevron {
+    color: #667085;
+    font-size: 1rem;
+    line-height: 1;
+}
+.unscheduled-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3px 8px;
+    padding: 11px 12px;
+    border-top: 1px solid #edf1f6;
+    font-size: 0.82rem;
+}
+.unscheduled-item strong,
+.unscheduled-item span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.unscheduled-item strong {
+    color: #344054;
+}
+.unscheduled-item span {
+    color: #667085;
+}
+.unscheduled-item small {
+    grid-column: 1 / -1;
+    color: #98a2b3;
+}

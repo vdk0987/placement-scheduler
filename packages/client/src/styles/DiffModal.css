@@ -1,215 +1,181 @@
 .modal-backdrop {
     position: fixed;
-
     inset: 0;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     padding: 20px;
-
-    background: rgba(15, 23, 42, 0.55);
-
+    background: rgba(15, 23, 42, 0.58);
     z-index: 1000;
 }
-
 .diff-modal {
     width: min(950px, 100%);
     max-height: 90vh;
-
-    overflow-y: auto;
-
-    background: white;
-
-    border-radius: 10px;
-
-    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.32);
 }
-
 .diff-header {
     display: flex;
-
     justify-content: space-between;
-
-    border-bottom: 1px solid #e5e7eb;
-
-    padding-bottom: 16px;
+    padding: 22px 24px 18px;
+    border-bottom: 1px solid #e7edf5;
 }
-
 .diff-header h2 {
     margin: 0;
+    letter-spacing: -0.025em;
 }
-
 .diff-header p {
     margin: 6px 0 0;
-
-    color: #64748b;
+    color: #667085;
 }
-
 .close-button {
-    border: none;
+    border: 0;
     background: none;
-
+    color: #667085;
     font-size: 2rem;
-
+    line-height: 0.8;
     cursor: pointer;
 }
-
+.diff-content {
+    overflow-y: auto;
+    padding: 0 24px 24px;
+}
 .diff-summary {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 12px;
-
     margin: 20px 0;
 }
-
 .summary-card {
-    padding: 16px;
-
     display: grid;
     gap: 5px;
-
-    background: #f8fafc;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 7px;
+    padding: 16px;
+    background: #f6f9fd;
+    border: 1px solid #e4ebf4;
+    border-radius: 9px;
 }
-
 .summary-card strong {
     font-size: 1.5rem;
 }
-
 .summary-card span {
-    color: #64748b;
+    color: #667085;
 }
-
 .diff-section {
-    margin-top: 25px;
+    margin-top: 24px;
 }
-
+.diff-section h3 {
+    margin: 0 0 10px;
+    font-size: 0.94rem;
+}
 .change-row {
-    padding: 14px;
-
     display: grid;
     gap: 12px;
-
-    border-bottom: 1px solid #e5e7eb;
+    padding: 14px;
+    border-bottom: 1px solid #e7edf5;
 }
-
 .before-after {
     display: flex;
-
     align-items: center;
-
     gap: 15px;
-
     flex-wrap: wrap;
 }
-
 .position {
     display: grid;
     gap: 3px;
-
     padding: 10px;
-
-    background: #f8fafc;
-
-    border-radius: 6px;
+    background: #f6f9fd;
+    border-radius: 8px;
 }
-
 .position > span {
+    color: #667085;
     font-size: 0.7rem;
-    color: #64748b;
 }
-
 .arrow {
     font-size: 1.5rem;
 }
-
 .unscheduled-change {
-    padding: 10px;
-
     display: grid;
     gap: 4px;
-
+    padding: 10px;
     border-left: 3px solid #dc2626;
-
     background: #fef2f2;
 }
-
 .notification {
     display: flex;
-
     justify-content: space-between;
-
     gap: 20px;
-
     padding: 12px;
-
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e7edf5;
 }
-
 .notification p {
     margin: 4px 0 0;
-
     color: #475569;
 }
-
 .notification button {
     height: fit-content;
-
     padding: 6px 10px;
 }
-
 .diff-footer {
     display: flex;
-
     justify-content: flex-end;
-
     gap: 10px;
-
-    margin-top: 30px;
-
-    padding-top: 20px;
-
-    border-top: 1px solid #e5e7eb;
+    margin-top: 0;
+    padding: 16px 24px 20px;
+    border-top: 1px solid #e7edf5;
+    background: #fff;
 }
-
 .cancel-button,
 .commit-button {
     padding: 10px 16px;
-
-    border-radius: 6px;
-
+    border-radius: 8px;
     cursor: pointer;
 }
-
 .cancel-button {
-    background: white;
-
+    background: #fff;
     border: 1px solid #cbd5e1;
 }
-
 .commit-button {
-    border: none;
-
-    background: #0f766e;
-    color: white;
-
+    border: 0;
+    background: #1565c0;
+    color: #fff;
     font-weight: 700;
 }
-
+.commit-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
 .empty-state {
     padding: 18px;
-
-    color: #64748b;
-
-    background: #f8fafc;
-
-    border-radius: 6px;
+    color: #667085;
+    background: #f6f9fd;
+    border-radius: 8px;
+}
+@media (max-width: 640px) {
+    .modal-backdrop {
+        padding: 10px;
+    }
+    .diff-modal {
+        max-height: 96vh;
+    }
+    .diff-header,
+    .diff-footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .diff-content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .diff-summary {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin: 14px 0;
+    }
+    .summary-card {
+        padding: 11px 13px;
+    }
 }

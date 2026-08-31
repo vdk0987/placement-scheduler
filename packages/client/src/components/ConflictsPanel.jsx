@@ -4,6 +4,7 @@ import "../styles/ConflictsPanel.css";
 
 export default function ConflictsPanel({ unscheduled }) {
   const [sortBy, setSortBy] = useState("priority");
+  const [expandedReasons, setExpandedReasons] = useState({});
 
   const grouped = useMemo(() => {
     const sorted = [...unscheduled].sort((a, b) => {
@@ -52,13 +53,28 @@ export default function ConflictsPanel({ unscheduled }) {
 
       {Object.entries(grouped).map(([reason, interviews]) => (
         <div className="reason-group" key={reason}>
-          <div className="reason-title">
+          <button
+            className="reason-title"
+            type="button"
+            aria-expanded={Boolean(expandedReasons[reason])}
+            onClick={() =>
+              setExpandedReasons((current) => ({
+                ...current,
+                [reason]: !current[reason],
+              }))
+            }
+          >
             <span>{reason}</span>
 
-            <strong>{interviews.length}</strong>
-          </div>
+            <span className="reason-meta">
+              <strong>{interviews.length}</strong>
+              <span className="reason-chevron" aria-hidden="true">
+                {expandedReasons[reason] ? "⌃" : "⌄"}
+              </span>
+            </span>
+          </button>
 
-          {interviews.map((interview) => (
+          {expandedReasons[reason] && interviews.map((interview) => (
             <UnscheduledItem
               key={
                 interview.id ?? `${interview.companyId}-${interview.studentId}`
